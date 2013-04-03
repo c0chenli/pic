@@ -62,10 +62,9 @@
 	}
 
 	function clickdata(){
-		   
 	  var check = 0;
 	  $.getJSON('favs.json',function (data) {
-			alert("hi");
+
 		  var end = 0;
 		  var part_data;
 		  if (index+10 <= data.length)
@@ -75,6 +74,8 @@
 		  part_data = data.slice(index,end);
 		  moreinfo(part_data);
 		  
+	  }).error(function(data){
+			alert("error1");
 	  });
 	   
 	  setTimeout(function(){ 
@@ -91,6 +92,8 @@
 		  detailInfo(part_data);
 		  index=end;
 		  
+	  }).error(function(data){
+			alert("error1");
 	  });return true;},1000);
 	}
 	
