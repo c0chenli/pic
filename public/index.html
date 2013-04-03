@@ -74,8 +74,8 @@
 		  part_data = data.slice(index,end);
 		  moreinfo(part_data);
 		  
-	  }).error(function(data,textStatus,xhr){
-			alert("error1"+textStatus+"  "+xhr.status);
+	  }).error(function(data){
+			alert("error1");
 	  });
 	   
 	  setTimeout(function(){ 
