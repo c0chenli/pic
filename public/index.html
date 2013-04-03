@@ -79,17 +79,26 @@
 	   
 	  setTimeout(function(){ 
 	  
+	  
+	    $.ajax({
+                url:        'https://raw.github.com/c0chenli/pic/master/public/favs.json',
+                dataType:   "json", // <== JSON-P request
+                success:    function(data){
+                     var end = 0;
+					  var part_data;
+					  if (index+10 <= data.length)
+						end = index+10;
+					  else
+						end=data.length;
+					  part_data = data.slice(index,end);
+					  detailInfo(part_data);
+					  index=end;
+                }
+            });
 	   $.getJSON('https://raw.github.com/c0chenli/pic/master/public/favs.json',function (data) {
+				
+                    alert("getin"); // this statement doesn't show up
 		 
-		  var end = 0;
-		  var part_data;
-		  if (index+10 <= data.length)
-		    end = index+10;
-		  else
-		    end=data.length;
-		  part_data = data.slice(index,end);
-		  detailInfo(part_data);
-		  index=end;
 		  
 	  });return true;},1000);
 	}
